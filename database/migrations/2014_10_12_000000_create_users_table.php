@@ -17,6 +17,9 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('dsa_token')->nullable();
+            $table->string('dsa_refresh_token')->nullable();
+            $table->enum('dsa_provider', ['spotify', 'apple'])->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
