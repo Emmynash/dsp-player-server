@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -11,7 +14,8 @@ class AuthController extends Controller
     /**
      * Redirect the user to the GitHub authentication page.
      *
-     * @return \Illuminate\Http\Response
+     * @param string $provider
+     * @return Response
      */
     public function redirectToProvider(string $provider)
     {
@@ -19,8 +23,8 @@ class AuthController extends Controller
     }
 
     /**
-     * @param  Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param string $provider
+     * @return JsonResponse
      */
     public function handleProviderCallback(string $provider)
     {
@@ -29,7 +33,7 @@ class AuthController extends Controller
         $user = $this->getLocalUser($socialUser);
 
         $authToken = $user->createToken('Token Name')->accessToken;
-        
+
         if (isset($content->error) && $content->error === 'invalid_request') {
             return response()->json(['error' => true, 'message' => $content->message]);
         }
@@ -72,14 +76,13 @@ class AuthController extends Controller
      */
     protected function registerUser(OAuthTwoUser $socialUser): ?User
     {
-       $user = User::create(
-            [
-                'name' => $socialUser->getName() ? $socialUser->getName() : 'Apple User',
-                'email' => $socialUser->getEmail(),
-                'password' => Str::random(30), // Social users are password-less
-                
-            ]
-        );
-        return $user;
+        return User::create(
+             [
+                 'name' => $socialUser->getName() ? $socialUser->getName() : 'Social User',
+                 'email' => $socialUser->getEmail(),
+                 'password' => Str::random(30), // Social users are password-less
+
+             ]
+         );
     }
 }
