@@ -7,6 +7,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Laravel\Socialite\Facades\Socialite;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Laravel\Socialite\Two\User as OAuthTwoUser;
+use App\User;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -15,7 +19,7 @@ class AuthController extends Controller
      * Redirect the user to the GitHub authentication page.
      *
      * @param string $provider
-     * @return Response
+     * @return RedirectResponse
      */
     public function redirectToProvider(string $provider)
     {
@@ -24,15 +28,16 @@ class AuthController extends Controller
 
     /**
      * @param string $provider
+     * @param Request $request
      * @return JsonResponse
      */
-    public function handleProviderCallback(string $provider)
+    public function handleProviderCallback(string $provider, Request $request)
     {
-        $socialUser = Socialite::driver($provider)->userFromToken($token);
-        $token = $socialUser->token;
+        $socialUser =  Socialite::driver($provider)->stateless()->user();
         $user = $this->getLocalUser($socialUser);
 
-        $authToken = $user->createToken('Token Name')->accessToken;
+//        $authToken = $user->createToken('Token Name')->accessToken;
+
 
         if (isset($content->error) && $content->error === 'invalid_request') {
             return response()->json(['error' => true, 'message' => $content->message]);
@@ -43,11 +48,11 @@ class AuthController extends Controller
                 'error' => false,
                 'data' => [
                     'user' => $user,
-                    'meta' => [
-                        'token' => $authToken->access_token,
-                        'expired_at' => $authToken->expires_in,
-                        'type' => 'Bearer'
-                    ],
+//                    'meta' => [
+//                        'token' => $authToken->access_token,
+//                        'expired_at' => $authToken->expires_in,
+//                        'type' => 'Bearer'
+//                    ],
                 ]
             ],
             Response::HTTP_OK
@@ -60,7 +65,7 @@ class AuthController extends Controller
      */
     protected function getLocalUser(OAuthTwoUser $socialUser): ?User
     {
-        $user = User::where('email', $socialUser->getEmail())->first();
+        $user = User::where('id', $socialUser->getId())->first();
 
         if (!$user) {
             $user = $this->registerUser($socialUser);
@@ -78,8 +83,9 @@ class AuthController extends Controller
     {
         return User::create(
              [
+                 'dsa_id' => $socialUser->getId(),
                  'name' => $socialUser->getName() ? $socialUser->getName() : 'Social User',
-                 'email' => $socialUser->getEmail(),
+                 'email' => $socialUser->getEmail() ? $socialUser->getEmail() : ''.$socialUser->getId().'@pearljam.com',
                  'password' => Str::random(30), // Social users are password-less
 
              ]
