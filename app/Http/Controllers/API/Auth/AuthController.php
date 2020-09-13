@@ -34,9 +34,9 @@ class AuthController extends Controller
     public function handleProviderCallback(string $provider, Request $request)
     {
         $socialUser =  Socialite::driver($provider)->stateless()->user();
-        $user = $this->getLocalUser($socialUser);
+        $user = $this->getLocalUser($socialUser, $provider);
 
-//        $authToken = $user->createToken('Token Name')->accessToken;
+        $authToken = $user->createToken('Token Name')->accessToken;
 
 
         if (isset($content->error) && $content->error === 'invalid_request') {
@@ -48,11 +48,11 @@ class AuthController extends Controller
                 'error' => false,
                 'data' => [
                     'user' => $user,
-//                    'meta' => [
-//                        'token' => $authToken->access_token,
+                    'meta' => [
+                        'token' => $authToken,
 //                        'expired_at' => $authToken->expires_in,
-//                        'type' => 'Bearer'
-//                    ],
+                        'type' => 'Bearer'
+                    ],
                 ]
             ],
             Response::HTTP_OK
@@ -63,12 +63,12 @@ class AuthController extends Controller
      * @param  OAuthTwoUser  $socialUser
      * @return User|null
      */
-    protected function getLocalUser(OAuthTwoUser $socialUser): ?User
+    protected function getLocalUser(OAuthTwoUser $socialUser, string $provider): ?User
     {
         $user = User::where('id', $socialUser->getId())->first();
 
         if (!$user) {
-            $user = $this->registerUser($socialUser);
+            $user = $this->registerUser($socialUser, $provider);
         }
 
         return $user;
@@ -79,16 +79,19 @@ class AuthController extends Controller
      * @param  OAuthTwoUser  $socialUser
      * @return User|null
      */
-    protected function registerUser(OAuthTwoUser $socialUser): ?User
+    protected function registerUser(OAuthTwoUser $socialUser, string $provider): ?User
     {
-        return User::create(
+        /** @var \App\User $user */
+        $user = User::create(
              [
-                 'dsa_id' => $socialUser->getId(),
                  'name' => $socialUser->getName() ? $socialUser->getName() : 'Social User',
                  'email' => $socialUser->getEmail() ? $socialUser->getEmail() : ''.$socialUser->getId().'@pearljam.com',
                  'password' => Str::random(30), // Social users are password-less
-
              ]
-         );
+        );
+
+        $user->createDsaAccount($provider, $socialUser->getId(), $socialUser->token, $socialUser->refreshToken);
+
+        return $user;
     }
 }
