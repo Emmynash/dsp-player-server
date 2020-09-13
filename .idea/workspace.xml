@@ -20,16 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eff3af5a-2af0-4e75-b1f7-ac557bbb3e20" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/pearljam.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pearljam.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Service/SpotifyService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service/SpotifyService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +202,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599619750332</updated>
       <workItem from="1599619754291" duration="6920000" />
-      <workItem from="1599677863587" duration="40554000" />
+      <workItem from="1599677863587" duration="45343000" />
     </task>
     <task id="LOCAL-00001" summary="update auth controller">
       <created>1599679202088</created>
@@ -272,7 +267,70 @@
       <option name="project" value="LOCAL" />
       <updated>1600024916536</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Change api driver to passport">
+      <created>1600025028599</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1600025028599</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update Authontroller">
+      <created>1600025096469</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1600025096470</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Include passport routes">
+      <created>1600027955540</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600027955540</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Downgrade passport and guzzle packages">
+      <created>1600028008401</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1600028008401</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add DSA user model">
+      <created>1600028134835</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1600028134835</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add spotify/playlist route">
+      <created>1600028218765</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1600028218765</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add SpotifyService">
+      <created>1600028333360</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1600028333360</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add DSA model">
+      <created>1600028374827</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1600028374827</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add DSA migration">
+      <created>1600028401186</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1600028401186</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +358,16 @@
     <MESSAGE value="Add dsa_id in fillable" />
     <MESSAGE value="Install aerni/laravel-spotify and laravel/passport packages" />
     <MESSAGE value="Update dsa fields in migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update dsa fields in migration" />
+    <MESSAGE value="Change api driver to passport" />
+    <MESSAGE value="Update Authontroller" />
+    <MESSAGE value="Include passport routes" />
+    <MESSAGE value="Downgrade passport and guzzle packages" />
+    <MESSAGE value="Add DSA user model" />
+    <MESSAGE value="Add spotify/playlist route" />
+    <MESSAGE value="Add SpotifyService" />
+    <MESSAGE value="Add DSA model" />
+    <MESSAGE value="Add DSA migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add DSA migration" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599651811786">

@@ -60,7 +60,8 @@ class AuthController extends Controller
     }
 
     /**
-     * @param  OAuthTwoUser  $socialUser
+     * @param OAuthTwoUser $socialUser
+     * @param string $provider
      * @return User|null
      */
     protected function getLocalUser(OAuthTwoUser $socialUser, string $provider): ?User
