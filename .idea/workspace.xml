@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eff3af5a-2af0-4e75-b1f7-ac557bbb3e20" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/pearljam.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pearljam.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/master" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +38,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -156,6 +162,15 @@
       <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
       <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
       <path value="$PROJECT_DIR$/vendor/socialiteproviders/spotify" />
+      <path value="$PROJECT_DIR$/vendor/laravel/passport" />
+      <path value="$PROJECT_DIR$/vendor/aerni/laravel-spotify" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/defuse/php-encryption" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-diactoros" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-server" />
+      <path value="$PROJECT_DIR$/vendor/league/event" />
+      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hFvdx1ycSJAvyad4XqENs62HT0" />
@@ -192,7 +207,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599619750332</updated>
       <workItem from="1599619754291" duration="6920000" />
-      <workItem from="1599677863587" duration="26260000" />
+      <workItem from="1599677863587" duration="40554000" />
     </task>
     <task id="LOCAL-00001" summary="update auth controller">
       <created>1599679202088</created>
@@ -222,7 +237,42 @@
       <option name="project" value="LOCAL" />
       <updated>1599679848234</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add dsa_id in users migration">
+      <created>1599841463047</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1599841463047</updated>
+    </task>
+    <task id="LOCAL-00006" summary="query user by id, add statless authorization">
+      <created>1599841578129</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1599841578129</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add dsa_id in fillable">
+      <created>1599841632306</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1599841632306</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Install aerni/laravel-spotify and laravel/passport packages">
+      <created>1599841817898</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1599841817898</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Update dsa fields in migration">
+      <created>1600024916536</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1600024916536</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +295,12 @@
     <MESSAGE value="Add spotify event listener" />
     <MESSAGE value="Add spotify sso creds to env" />
     <MESSAGE value="Auto generated files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auto generated files" />
+    <MESSAGE value="Add dsa_id in users migration" />
+    <MESSAGE value="query user by id, add statless authorization" />
+    <MESSAGE value="Add dsa_id in fillable" />
+    <MESSAGE value="Install aerni/laravel-spotify and laravel/passport packages" />
+    <MESSAGE value="Update dsa fields in migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update dsa fields in migration" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599651811786">
@@ -256,5 +311,17 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="551" y="334" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1599658175372" />
+    <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600017785781">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1600017785781" />
+    <state x="602" y="444" width="475" height="249" key="ComposerInitDialogKey" timestamp="1599928435070">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="602" y="444" width="475" height="249" key="ComposerInitDialogKey/0.0.1680.1050@0.0.1680.1050" timestamp="1599928435070" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1599845618072">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1599845618072" />
   </component>
 </project>
