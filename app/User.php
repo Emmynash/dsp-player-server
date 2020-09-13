@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +37,30 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function dsaAccounts()
+    {
+        return $this->hasMany(DsaAccount::class);
+    }
+
+    public function spotifyDsa()
+    {
+        $this->dsaAccounts()->where('provider', 'spotify')->first();
+    }
+
+    public function appleDsa()
+    {
+        $this->dsaAccounts()->where('provider', 'apple')->first();
+    }
+
+    public function createDsaAccount(string $provider, string $dsaId, string $dsaOAuthToken, string $dsaOAuthRefreshToken)
+    {
+        return DsaAccount::create([
+            'user_id' => $this->id,
+            'provider_id' => $dsaId,
+            'provider' => $provider,
+            'oauth_token' => $dsaOAuthToken,
+            'oauth_refresh_token' => $dsaOAuthRefreshToken,
+        ]);
+    }
 }
