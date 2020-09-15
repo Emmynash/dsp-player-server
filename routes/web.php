@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\Auth\AuthController;
-use App\Services\SpotifyService;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +23,6 @@ Route::get('login/{provider}', [AuthController::class, 'redirectToProvider'])
     ->where(['provider' => 'apple|spotify']);
 Route::get('login/{provider}/callback', [AuthController::class, 'handleProviderCallback'])
     ->where(['provider' => 'apple|spotify']);
-Route::get('spotify/playlist', [SpotifyService::class, 'getPlaylist']);
+
+
+
