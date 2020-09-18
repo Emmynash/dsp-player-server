@@ -45,12 +45,12 @@ class User extends Authenticatable
 
     public function spotifyDsa()
     {
-        $this->dsaAccounts()->where('provider', 'spotify')->first();
+        return $this->dsaAccounts()->where('provider', 'spotify')->first();
     }
 
     public function appleDsa()
     {
-        $this->dsaAccounts()->where('provider', 'apple')->first();
+       return $this->dsaAccounts()->where('provider', 'apple')->first();
     }
 
     public function createDsaAccount(string $provider, string $dsaId, string $dsaOAuthToken, string $dsaOAuthRefreshToken)
@@ -61,6 +61,32 @@ class User extends Authenticatable
             'provider' => $provider,
             'oauth_token' => $dsaOAuthToken,
             'oauth_refresh_token' => $dsaOAuthRefreshToken,
+        ]);
+    }
+
+    public function dsaPlaylist()
+    {
+        return $this->hasMany(DsaAccount::class);
+    }
+
+    public function createPlaylist($dsaId, $imageUrl, $name, $description, $provider)
+    {
+
+        return DsaPlaylist::create([
+            'user_id' => $this->id,
+            'name' => $name,
+            'image_url' => $imageUrl,
+            'description' => $description,
+            'dsa_playlist_id' => $dsaId,
+            'provider' => $provider
+        ]);
+    }
+
+    public function addPlaylistTrack( $playlistId, $snapshotId)
+    {
+        return Track::create([
+            'playlist_id' => $playlistId,
+            'snapshot_id' => $snapshotId
         ]);
     }
 }
