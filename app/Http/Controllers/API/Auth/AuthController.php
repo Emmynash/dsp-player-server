@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Laravel\Socialite\Two\User as OAuthTwoUser;
@@ -23,7 +24,19 @@ class AuthController extends Controller
      */
     public function redirectToProvider(string $provider)
     {
-        return Socialite::driver($provider)->redirect();
+        return Socialite::driver($provider)->scopes([
+            'user-library-modify',
+            'playlist-modify-public',
+            'user-read-email',
+            'streaming',
+            'user-library-read',
+            'user-modify-playback-state',
+            'user-read-playback-state',
+            'playlist-read-private',
+            'user-read-currently-playing',
+            'user-read-recently-played',
+            'app-remote-control'
+        ])->redirect();
     }
 
     /**
@@ -42,6 +55,8 @@ class AuthController extends Controller
         if (isset($content->error) && $content->error === 'invalid_request') {
             return response()->json(['error' => true, 'message' => $content->message]);
         }
+
+        Auth::login($user);
 
         return response()->json(
             [
@@ -71,6 +86,7 @@ class AuthController extends Controller
         if (!$user) {
             $user = $this->registerUser($socialUser, $provider);
         }
+        Auth::login($user);
 
         return $user;
     }
@@ -90,6 +106,8 @@ class AuthController extends Controller
                  'password' => Str::random(30), // Social users are password-less
              ]
         );
+
+        Auth::login($user);
 
         $user->createDsaAccount($provider, $socialUser->getId(), $socialUser->token, $socialUser->refreshToken);
 
