@@ -24,19 +24,23 @@ class AuthController extends Controller
      */
     public function redirectToProvider(string $provider)
     {
-        return Socialite::driver($provider)->scopes([
-            'user-library-modify',
-            'playlist-modify-public',
-            'user-read-email',
-            'streaming',
-            'user-library-read',
-            'user-modify-playback-state',
-            'user-read-playback-state',
-            'playlist-read-private',
-            'user-read-currently-playing',
-            'user-read-recently-played',
-            'app-remote-control'
-        ])->redirect();
+        if($provider === 'spotify'){
+            return Socialite::driver($provider)->scopes([
+                'user-library-modify',
+                'playlist-modify-public',
+                'user-read-email',
+                'streaming',
+                'user-library-read',
+                'user-modify-playback-state',
+                'user-read-playback-state',
+                'playlist-read-private',
+                'user-read-currently-playing',
+                'user-read-recently-played',
+                'app-remote-control'
+            ])->redirect();
+        }
+        return Socialite::driver($provider)->redirect();
+
     }
 
     /**

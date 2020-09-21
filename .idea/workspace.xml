@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eff3af5a-2af0-4e75-b1f7-ac557bbb3e20" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +184,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -202,6 +203,7 @@
       <updated>1599619750332</updated>
       <workItem from="1599619754291" duration="6920000" />
       <workItem from="1599677863587" duration="45343000" />
+      <workItem from="1600686615861" duration="5504000" />
     </task>
     <task id="LOCAL-00001" summary="update auth controller">
       <created>1599679202088</created>
@@ -357,7 +359,42 @@
       <option name="project" value="LOCAL" />
       <updated>1600411954884</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add createPlaylist and addPlaylistTrack functions">
+      <created>1600412691741</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1600412691741</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add playlist track migration">
+      <created>1600412748483</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1600412748483</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Add dsa playlist model">
+      <created>1600412784589</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1600412784589</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Add dsa playlist controller">
+      <created>1600412814536</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1600412814536</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Add dsa track model">
+      <created>1600412844669</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1600412844669</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,8 +413,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update auth controller" />
-    <MESSAGE value="Add spotify event listener" />
     <MESSAGE value="Add spotify sso creds to env" />
     <MESSAGE value="Auto generated files" />
     <MESSAGE value="Add dsa_id in users migration" />
@@ -398,7 +433,12 @@
     <MESSAGE value="Add playlists and tracks api route" />
     <MESSAGE value="Login auth user, add spotify scopes" />
     <MESSAGE value="Add spotify playlists and tracks static methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add spotify playlists and tracks static methods" />
+    <MESSAGE value="Add createPlaylist and addPlaylistTrack functions" />
+    <MESSAGE value="Add playlist track migration" />
+    <MESSAGE value="Add dsa playlist model" />
+    <MESSAGE value="Add dsa playlist controller" />
+    <MESSAGE value="Add dsa track model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add dsa track model" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599651811786">
@@ -417,6 +457,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="602" y="444" width="475" height="249" key="ComposerInitDialogKey/0.0.1680.1050@0.0.1680.1050" timestamp="1599928435070" />
+    <state x="349" y="164" key="SettingsEditor" timestamp="1600687838552">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="349" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600687838552" />
     <state x="541" y="157" width="598" height="735" key="find.popup" timestamp="1600255275936">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
