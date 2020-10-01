@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Laravel\Socialite\Two\User as OAuthTwoUser;
@@ -36,7 +37,8 @@ class AuthController extends Controller
                 'playlist-read-private',
                 'user-read-currently-playing',
                 'user-read-recently-played',
-                'app-remote-control'
+                'app-remote-control',
+                'user-read-private'
             ])->redirect();
         }
         return Socialite::driver($provider)->redirect();
@@ -50,6 +52,7 @@ class AuthController extends Controller
      */
     public function handleProviderCallback(string $provider, Request $request)
     {
+
         $socialUser =  Socialite::driver($provider)->stateless()->user();
         $user = $this->getLocalUser($socialUser, $provider);
 
@@ -59,6 +62,7 @@ class AuthController extends Controller
         if (isset($content->error) && $content->error === 'invalid_request') {
             return response()->json(['error' => true, 'message' => $content->message]);
         }
+
 
         Auth::login($user);
 
@@ -117,4 +121,80 @@ class AuthController extends Controller
 
         return $user;
     }
+
+    protected function registerSocialUser(Request $request)
+    {
+        $validateData = $request->validate([
+            'email' => 'required|string|unique:users|max:255|email:rfc,dns',
+            'password' => 'required|string|min:6'
+        ]);
+
+        if( User::where('email', '=', $validateData['email'])->first())
+        {
+//            return redirect()->back()->withInput()->withErrors(['email' =>  'Email already exist']);
+            return response()->json(['error' => 'Email already exist.'], 400);
+        }
+
+        /** @var \App\User $user */
+        $user = User::create([
+            'email'=> $validateData['email'],
+            'password' => Hash::make($validateData['password'], [
+                'rounds' => 12,
+            ])
+        ]);
+
+        Auth::login($user);
+
+        return response()->json(
+            [
+                'error' => false,
+                'data' => $user
+            ],
+            Response::HTTP_OK
+        );
+    }
+    protected function loginUser(Request $request)
+    {
+        $validateData = $request->validate([
+            'email' => 'required|string|unique:users|max:255|email:rfc,dns',
+            'password' => 'required|string|min:6'
+        ]);
+
+        $user = User::where('email', '=', $validateData['email'])->first();
+        if(!$user && !Hash::check($validateData['password'], $user->password)){
+//            return redirect()->back()->withInput()->withErrors(['Msg',  'Invalid login credentials']);
+            return response()->json(['error' => 'Invalid login credentials.'], 400);
+        };
+
+        Auth::login($user);
+
+        return response()->json(
+            [
+                'error' => false,
+                'data' => $user
+            ],
+            Response::HTTP_OK
+        );
+    }
+
+    protected function getUser(Request $request)
+    {
+            /** @var \App\User $user */
+        $userId = $request->route('id');
+            $user = User::findOrFail($userId);
+            if(!$user){
+//                return redirect()->back()->withErrors(['Msg',  'User not found']);
+                return response()->json(['error' => 'User not found.'], 403);
+            }
+
+            return response()->json(
+                [
+                    'error' => false,
+                    'data' => $user
+                ],
+                Response::HTTP_OK
+            );
+    }
+
+
 }
