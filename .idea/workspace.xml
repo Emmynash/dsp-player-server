@@ -21,7 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="eff3af5a-2af0-4e75-b1f7-ac557bbb3e20" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Service/SpotifyService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service/SpotifyService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_11_172313_create_dsa_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_11_172313_create_dsa_accounts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +211,9 @@
       <updated>1599619750332</updated>
       <workItem from="1599619754291" duration="6920000" />
       <workItem from="1599677863587" duration="45343000" />
-      <workItem from="1600686615861" duration="5504000" />
+      <workItem from="1600686615861" duration="9897000" />
+      <workItem from="1601038200984" duration="17433000" />
+      <workItem from="1601463631558" duration="1503000" />
     </task>
     <task id="LOCAL-00001" summary="update auth controller">
       <created>1599679202088</created>
@@ -394,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600412844669</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Check provider and pass the appropriate scopes">
+      <created>1600706427141</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1600706427143</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +430,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add spotify sso creds to env" />
     <MESSAGE value="Auto generated files" />
     <MESSAGE value="Add dsa_id in users migration" />
     <MESSAGE value="query user by id, add statless authorization" />
@@ -438,7 +454,8 @@
     <MESSAGE value="Add dsa playlist model" />
     <MESSAGE value="Add dsa playlist controller" />
     <MESSAGE value="Add dsa track model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add dsa track model" />
+    <MESSAGE value="Check provider and pass the appropriate scopes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check provider and pass the appropriate scopes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599651811786">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\Auth\AuthController;
 use App\Http\Controllers\PlaylistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,4 +24,11 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/playlists', [PlaylistController::class, 'index']);
     Route::get('/playlists/{id}', [PlaylistController::class, 'show']);
     Route::post('/playlists/{id}/add-tracks', [\App\Services\SpotifyService::class, 'addPlaylistTracks']);
+});
+
+Route::prefix('/auth')->group(function(){
+    Route::post('/register', [AuthController::class, 'registerSocialUser']);
+    Route::post('/login', [AuthController::class, 'loginUser']);
+    Route::get('/{id}', [AuthController::class, 'getUser']);
+    Route::put('me/update', [AuthController::class, 'updateUser']);
 });
