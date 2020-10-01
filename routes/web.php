@@ -23,6 +23,9 @@ Route::get('login/{provider}', [AuthController::class, 'redirectToProvider'])
     ->where(['provider' => 'apple|spotify']);
 Route::get('login/{provider}/callback', [AuthController::class, 'handleProviderCallback'])
     ->where(['provider' => 'apple|spotify']);
+Route::post('login/{provider}/callback', [AuthController::class, 'handleProviderCallback'])
+    ->where(['provider' => 'apple|spotify']);
+
 
 
 
