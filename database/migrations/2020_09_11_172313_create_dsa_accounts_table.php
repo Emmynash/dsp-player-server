@@ -17,7 +17,7 @@ class CreateDsaAccountsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('provider_id')->unique();
-            $table->string('oauth_token')->nullable();
+            $table->string('oauth_token', 1028)->nullable();
             $table->string('oauth_refresh_token')->nullable();
             $table->enum('provider', ['spotify', 'apple'])->nullable();
             $table->timestamps();
