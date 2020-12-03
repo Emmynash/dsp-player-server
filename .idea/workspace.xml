@@ -21,15 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eff3af5a-2af0-4e75-b1f7-ac557bbb3e20" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/Auth/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Service/SpotifyService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service/SpotifyService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_11_172313_create_dsa_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_11_172313_create_dsa_accounts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +204,7 @@
       <workItem from="1599677863587" duration="45343000" />
       <workItem from="1600686615861" duration="9897000" />
       <workItem from="1601038200984" duration="17433000" />
-      <workItem from="1601463631558" duration="1503000" />
+      <workItem from="1601463631558" duration="2713000" />
     </task>
     <task id="LOCAL-00001" summary="update auth controller">
       <created>1599679202088</created>
@@ -411,7 +402,70 @@
       <option name="project" value="LOCAL" />
       <updated>1600706427143</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Update login function">
+      <created>1601565348870</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1601565348870</updated>
+    </task>
+    <task id="LOCAL-00030" summary="create dsa table">
+      <created>1601565416808</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1601565416808</updated>
+    </task>
+    <task id="LOCAL-00031" summary="update user table">
+      <created>1601565432759</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1601565432759</updated>
+    </task>
+    <task id="LOCAL-00032" summary="update user fillable: add username">
+      <created>1601565466599</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1601565466599</updated>
+    </task>
+    <task id="LOCAL-00033" summary="exclude apple callback url in VerifyCsrfToken">
+      <created>1601565569707</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1601565569707</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Add apple login endpoint">
+      <created>1601565611543</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1601565611543</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Add user login endpoint">
+      <created>1601565656301</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1601565656301</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Modified exception message">
+      <created>1601565684663</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1601565684663</updated>
+    </task>
+    <task id="LOCAL-00037" summary="create dsa_albums tables, dsa_songs table with models">
+      <created>1601565803627</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1601565803627</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,15 +484,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Auto generated files" />
-    <MESSAGE value="Add dsa_id in users migration" />
-    <MESSAGE value="query user by id, add statless authorization" />
-    <MESSAGE value="Add dsa_id in fillable" />
-    <MESSAGE value="Install aerni/laravel-spotify and laravel/passport packages" />
-    <MESSAGE value="Update dsa fields in migration" />
-    <MESSAGE value="Change api driver to passport" />
-    <MESSAGE value="Update Authontroller" />
-    <MESSAGE value="Include passport routes" />
     <MESSAGE value="Downgrade passport and guzzle packages" />
     <MESSAGE value="Add DSA user model" />
     <MESSAGE value="Add spotify/playlist route" />
@@ -455,7 +500,16 @@
     <MESSAGE value="Add dsa playlist controller" />
     <MESSAGE value="Add dsa track model" />
     <MESSAGE value="Check provider and pass the appropriate scopes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check provider and pass the appropriate scopes" />
+    <MESSAGE value="Update login function" />
+    <MESSAGE value="create dsa table" />
+    <MESSAGE value="update user table" />
+    <MESSAGE value="update user fillable: add username" />
+    <MESSAGE value="exclude apple callback url in VerifyCsrfToken" />
+    <MESSAGE value="Add apple login endpoint" />
+    <MESSAGE value="Add user login endpoint" />
+    <MESSAGE value="Modified exception message" />
+    <MESSAGE value="create dsa_albums tables, dsa_songs table with models" />
+    <option name="LAST_COMMIT_MESSAGE" value="create dsa_albums tables, dsa_songs table with models" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599651811786">
